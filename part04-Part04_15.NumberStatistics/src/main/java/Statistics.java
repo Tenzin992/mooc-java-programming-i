@@ -20,6 +20,11 @@ public class Statistics {
         return this.sum;
     }
     public double average(){
-        return 1.0*this.sum/this.count;
+        if (this.count == 0){
+            return 0;
+        } else {
+            return 1.0*this.sum/this.count;
+        }
+        
     }
 }

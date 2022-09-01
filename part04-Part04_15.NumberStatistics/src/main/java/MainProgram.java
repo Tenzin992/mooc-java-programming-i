@@ -1,10 +1,9 @@
-
 import java.util.Scanner;
 
 public class MainProgram {
 
     public static void main(String[] args) {
-        Statistics statistics = new Statistics();
+        Scanner scanner = new Scanner(System.in);
         // you can write test code here
         // however, remove all unnecessary code when doing the final parts of the exercise
 
@@ -12,14 +11,31 @@ public class MainProgram {
         // correct order in the main program. First the object that tracks the total
         // sum, secondly the object that tracks the sum of even numbers, 
         // and lastly the one that tracks the sum of odd numbers!
-        
-        statistics.addNumber(3);
-        statistics.addNumber(5);
-        statistics.addNumber(1);
-        statistics.addNumber(2);
-        System.out.println("Count: " + statistics.getCount());
-        System.out.println("Sum: " + statistics.sum());
-        System.out.println("Average: " + statistics.average());
+        Statistics sum = new Statistics();
+        Statistics even = new Statistics();
+        Statistics odd = new Statistics();
+
+        System.out.println("Enter numbers: ");
+
+        while (true) {
+            int number = Integer.valueOf(scanner.nextLine());
+
+            if (number == -1) {
+                break;
+            }
+
+            sum.addNumber(number);
+
+            if (number % 2 == 0) {
+                even.addNumber(number);
+            } else {
+                odd.addNumber(number);
+            }
+
+        }
+
+        System.out.println("Sum: " + sum.sum());
+        System.out.println("Sum of even numbers: " + even.sum());
+        System.out.println("Sum of odd numbers: " + odd.sum());
     }
-    
 }
